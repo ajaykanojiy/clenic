@@ -51,15 +51,15 @@
             foreach ($employee_data as $employee)
             {
 
-                if($employee->type==4){
+                if($employee->type==1){
                     $des='Super Admin';
                  }
                 elseif($employee->type==2){
-                   $des='Employee';
+                   $des='Admin';
 
                   }
                   else{
-                    $des='Admin';
+                    $des='Employee';
                   }
 
                 

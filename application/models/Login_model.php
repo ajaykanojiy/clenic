@@ -15,14 +15,14 @@ class Login_model extends CI_Model {
         $row = $query->row();
            
        // print_r($row);die;
-       //   echo $row->type;die;
+         // echo $row->type;die;
 
         if ($row > '0') {
             
-             if($row->type == 3){
+             if($row->type == 4){
             $this->db->select('name,id');
             $this->db->where('id',$row->log_id);
-           $res= $this->db->get('customer')->row();
+           $res= $this->db->get('doctor')->row();
          }
          else{
            $this->db->where('id',$row->log_id);
@@ -63,7 +63,7 @@ class Login_model extends CI_Model {
                 'reg_id' => $res->id,
                 'email' => $res->emailid,
                 'name' => $res->first_name,
-               
+                'type' => 1,
                  'validated' => true
             );
 
@@ -91,6 +91,7 @@ class Login_model extends CI_Model {
                 'name' => $row->name,
                  'validated' => true
             );
+            echo '<pre>';
             $this->session->set_userdata($data);
             return $row;
         } else {

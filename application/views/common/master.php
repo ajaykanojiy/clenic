@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Revenue </title>
+        <title>Clinic </title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.6 -->
@@ -51,7 +51,7 @@
                     }
                     $user_set_name = $this->session->userdata('logo_name');
                     ?>
-                    <span class="logo-lg"><b><?php echo $user_set_name; ?>&nbsp;</b>Revenue </span>
+                    <span class="logo-lg"><b><?php echo $user_set_name; ?>&nbsp;</b>Clinic </span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top">
@@ -68,57 +68,60 @@
                   <?php $type=$this->session->userdata('type');
                         $log_id=$this->session->userdata('reg_id');
 
-                        if($type==2){
-                          $this->db->select('count(*) as total');
-                          $this->db->where('other_emp_id',$log_id);
-                          $this->db->where('payment_status',1);
-                          $count= $this->db->get('income_register')->row();
+                        // if($type==2){
+                        //   $this->db->select('count(*) as total');
+                        //   $this->db->where('other_emp_id',$log_id);
+                        //   $this->db->where('payment_status',1);
+                        //   $count= $this->db->get('income_register')->row();
                    ?>
                   <div>
-                     <li class="dropdown notifications-menu pull-right">
+                    <!--  <li class="dropdown notifications-menu pull-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                           <i class="fa fa-bell-o"></i>
-                          <span class="label label-warning" style="margin-right: 20px;"><?php echo $count->total ?></span>
+                          <span class="label label-warning" style="margin-right: 20px;"><?php //echo $count->total ?></span>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu"> -->
                         <!--   <li class="header">You have 10 notifications</li> -->
-                          <li>
+                          <!-- <li> -->
                             <!-- inner menu: contains the actual data -->
-                            <ul class="menu">
+                            <!-- <ul class="menu"> -->
                               <?php 
-                               $this->db->select('emp.name,emp.id,income.employee_id, income.expense,income.register_id');
-                               $this->db->from('income_register as income');
-                               $this->db->join('employee as emp','emp.id=income.employee_id');
-                               $this->db->where('other_emp_id',$log_id);
-                               $this->db->where('payment_status',1);
-                               $count= $this->db->get()->result(); 
-                                 foreach ($count as $key => $value) {?>
-                                    <a href="<?php echo base_url('income_register') ?>"><li ><?php echo $value->name.'-'.$value->id.'--'.$value->expense ?></li></a>     
-                                <?php }?>
+                               // $this->db->select('emp.name,emp.id,income.employee_id, income.expense,income.register_id');
+                               // $this->db->from('income_register as income');
+                               // $this->db->join('employee as emp','emp.id=income.employee_id');
+                               // $this->db->where('other_emp_id',$log_id);
+                               // $this->db->where('payment_status',1);
+                               // $count= $this->db->get()->result(); 
+                                 // foreach ($count as $key => $value) {?>
+                                    <!-- <a href="<?php echo base_url('income_register') ?>"><li ><?php echo $value->name.'-'.$value->id.'--'.$value->expense ?></li></a>      -->
+                                <?php //}?>
                                
                               
                                                     
-                            </ul>
+                          <!--   </ul>
                           </li>
                         
                         </ul>
                       </li>
-                  </div>
-              <?php } ?>
+                  </div> -->
+              <?php //} ?>
                 </nav>
             </header>
             <!-- Left side column. contains the logo and sidebar -->
              <?php $type= $this->session->userdata('type'); 
-                if($type==4){
+                if($type==1){
                   $this->load->view('common/sidebr');
-                }else if($type==2){
-                  $this->load->view('common/sidebr_employee');
-                }elseif($type==3){
-                  $this->load->view('common/sidebr_user');
+                }
+                else if($type==2){
+                  $this->load->view('common/sidebr_admin');
+                }
+                else if($type==4){
+                  $this->load->view('common/sidebr_admin');
                 }
                 else{
-                   $this->load->view('common/sidebr');
+                  $this->load->view('common/sidebr_employee');
                 }
+              
           ?>
             
             <!-- Content Wrapper. Contains page content -->
@@ -179,6 +182,13 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+
+
+
+       
+
+ <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>  
+
 
 
     <script type="text/javascript">

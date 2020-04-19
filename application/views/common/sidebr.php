@@ -22,27 +22,24 @@
 
           <?php $type= $this->session->userdata('type'); 
 
-                if($type==4){
+                if($type==1){
 
                   $login='Super admin';
 
                 }
 
-                elseif($type==1){
+                elseif($type==2){
 
                   $login='Admin';
 
                 }
 
-                else if($type==2){
+                else 
+                {
 
                   $login='Employee';
 
-                }else{
-
-                  $login='User';
-
-                }
+               }
 
           ?>
 
@@ -77,11 +74,61 @@
         </li>
 
          
-           <li><a href="<?php echo base_url('login_create') ?>"><i class="fa fa-circle-o"></i>Login</a></li>
+          
+
+         <li class="header">Setting</li>
+
+      
+
+        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-user"></i> <span>Dcotor management</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo base_url('doctor'); ?>"><i class="fa fa-circle-o"></i> Add/modifiy Doctor</a></li>
+                                <li><a href="<?php echo base_url('speciality'); ?>"><i class="fa fa-circle-o"></i>Speciality</a></li>
+                               
+                            </ul>
+                        </li> 
+
+   
+       
+
+
+        <li class="active">
+
+          <a href="<?php echo base_url('staff') ?>">
+
+            <i class="fa fa-th"></i> <span>Staff Management</span>
+
+
+          </a>
 
         </li>
 
+        <li class="active">
+
+          <a href="<?php echo base_url('service') ?>">
+
+            <i class="fa fa-th"></i> <span>Service Management</span>
+
+
+          </a>
+
+        </li>
+
+
+         <li><a href="<?php echo base_url('login_create') ?>"><i class="fa fa-circle-o"></i>Login</a></li>
+
+
+
+
       </ul>
+
+
 
     </section>
 

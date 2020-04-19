@@ -37,9 +37,11 @@
             <label for="varchar">Type <?php echo form_error('type') ?></label>
          
           <select class="form-control" name="type" id="type">
-              <option value="4"<?php if($type==4){echo 'selected';} ?>>SuperAdmin</option>
-              <option value="2"<?php if($type==2){echo 'selected';} ?>>Employee</option>
-              <option value="1"<?php if($type==1){echo 'selected';} ?>>Admin</option>
+              <option value="3"<?php if($type==3){echo 'selected';} ?>>Employee</option>
+              <option value="2"<?php if($type==2){echo 'selected';} ?>>Admin</option>
+              <option value="1"<?php if($type==1){echo 'selected';} ?>>SuperAdmin</option>
+
+              
           </select>
 
         </div>

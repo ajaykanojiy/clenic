@@ -48,14 +48,14 @@
             $start = 0;
             foreach ($login_data as $login)
             {
-                if($login->type==3){
-                    $log='User';
+                if($login->type==1){
+                    $log='Super admin';
                 }
                  elseif($login->type==2){
-                    $log='Employee';
+                    $log='admin';
                 }
-                 elseif($login->type==1){
-                    $log='Admin';
+                 elseif($login->type==3){
+                    $log='Employee';
                 }
                 else{
                     $log=''; 
